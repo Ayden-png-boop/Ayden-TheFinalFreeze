@@ -87,7 +87,9 @@ node server.js       # 默认 127.0.0.1:8787，访问 /Ayden-BHG/admin/
 
 ## 部署要点
 
-- 站点以子路径方式托管（`/Ayden-BHG/national/`），构建时必须带 `--base=/Ayden-BHG/national/`，否则资源全 404。
+- 线上地址：<https://redspiderbc.cn/Ayden-TheFinalFreeze/>（旧路径 `/Ayden-BHG/national/` 仍在线）。
+- 站点以子路径方式托管，构建时必须带对应的 `--base`（如 `--base=/Ayden-TheFinalFreeze/`），否则资源全 404。
+  媒体路径由 `import.meta.env.BASE_URL` 拼接、统计接口用相对 `./api`，因此换路径时需同时配好静态目录与 `/api/` 反代。
 - Linux 文件系统大小写敏感：素材文件名必须与代码引用**逐字符一致**，建议一次 `grep -o "videos/[a-z0-9_]*\.mp4"` 与 `ls public/videos` 做交叉核对。
 - 视频 `/posters` 与 `/voice` 体积较大（约 58 MB），建议与代码分两次发布，并开启 `gzip_static` 与长缓存。
 - 老内核 CSS 兜底：Tailwind v4 产出的 `oklch()` / `color-mix()` / `@layer` / `in oklab` 在旧 WebView 上会整块失效，仓库内的构建流程对此做了后处理，替换为等价的 hex / rgba 与展平后的规则。
