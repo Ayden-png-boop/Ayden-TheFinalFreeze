@@ -134,11 +134,12 @@ export default function App() {
     enabled: voOn && !!chapter && !endingData && !showRegister && !transition && !qteChoice,
   })
 
-  /* 语言切换持久化 + <html lang> */
+  /* 语言切换持久化 + <html lang> + 标签页标题（index.html 里的静态标题是英文兜底） */
   useEffect(() => {
     LS.set('gm_lang', lang)
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang
-  }, [lang])
+    document.title = t('title')
+  }, [lang, t])
   useEffect(() => LS.set('gm_muted', muted), [muted])
 
   /* 浏览器拦截了有声播放（无手势）→ 把开关拨回静音，别让 UI 和实际不一致 */

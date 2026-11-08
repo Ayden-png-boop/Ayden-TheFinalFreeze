@@ -11,7 +11,7 @@ export const LANGS = [
   { code: 'fr', name: 'Français', flag: '🇫🇷' },
 ]
 
-export const DEFAULT_LANG = 'zh'
+export const DEFAULT_LANG = 'en'
 
 export const UI = {
   zh: {

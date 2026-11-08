@@ -13,6 +13,20 @@ _shots/
 _probe/
 _tools/_calib/
 _tools/_shot*.png
+
+# 配音流水线的中间产物：切片、试听、ASR/频谱结果、临时音频
+_tools/_*/
+_tools/_*.wav
+_tools/_*.mp3
+_tools/_*.json
+_tools/_test_*.py
+_pitch_test_*.wav
+_pitch_test_*.mp3
+ref_clone.wav
+
+# 原始录音素材（含本人声音，不进公开仓库）
+mp3/
+
 冰川信使：斑头雁的2040-Ayden参赛作品(1)/
 
 # 私密内容：部署脚本与服务器私钥绝不入库
